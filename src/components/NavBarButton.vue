@@ -1,0 +1,26 @@
+<script setup lang="ts">
+const props = defineProps({
+  title: String,
+  tree: {
+    type: Boolean,
+    default: false,
+    required: false,
+  },
+});
+</script>
+<template>
+  <button
+    class="rounded-xl px-4 py-3 bg-[#33b18a] w-full text-left flex justify-between text-sm hover:bg-opacity-70 hover:translate-x-2 transition-all"
+  >
+    <div class="flex space-x-3">
+      <slot />
+      <span>{{ title }}</span>
+    </div>
+    <div v-if="tree">
+      <i class="bi bi-caret-down"></i>
+    </div>
+  </button>
+</template>
+<style>
+@import "bootstrap-icons/font/bootstrap-icons.css";
+</style>
