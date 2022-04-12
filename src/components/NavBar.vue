@@ -89,12 +89,16 @@ const navBarButtons = ref([
           :key="navBarButton.title"
           v-on:click="navBarButton.toggleActive()"
         >
-          <NavBarButton :title="navBarButton.title" :tree="navBarButton.tree">
+          <NavBarButton
+            :title="navBarButton.title"
+            :tree="navBarButton.tree"
+            :active="navBarButton.active"
+          >
             <i :class="navBarButton.icon"></i>
           </NavBarButton>
           <ul
             v-if="navBarButton.tree"
-            class="flex flex-col space-y-1"
+            class="flex flex-col space-y-1 ml-3"
             :class="{ hidden: navBarButton.active }"
           >
             <li
