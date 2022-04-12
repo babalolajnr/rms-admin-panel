@@ -6,6 +6,11 @@ const props = defineProps({
     default: false,
     required: false,
   },
+  active: {
+    type: Boolean,
+    default: false,
+    required: false,
+  },
 });
 </script>
 <template>
@@ -17,7 +22,10 @@ const props = defineProps({
       <span>{{ title }}</span>
     </div>
     <div v-if="tree">
-      <i class="bi bi-caret-down"></i>
+      <i
+        class="bi"
+        :class="{ 'bi-caret-left': active, 'bi-caret-down': !active }"
+      ></i>
     </div>
   </button>
 </template>
