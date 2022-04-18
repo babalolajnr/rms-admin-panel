@@ -15,7 +15,8 @@ const props = defineProps({
 </script>
 <template>
   <button
-    class="rounded-xl px-4 py-3 bg-[#33b18a] w-full text-left flex justify-between text-sm hover:bg-opacity-70 hover:translate-x-2 transition-all"
+    class="rounded-xl px-4 py-3 w-full text-left flex justify-between text-sm hover:bg-opacity-70 hover:translate-x-2 transition-all"
+    :class="{ 'bg-[#33b18a]': active }"
   >
     <div class="flex space-x-3">
       <slot />
