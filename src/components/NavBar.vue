@@ -83,9 +83,9 @@ function toggleActive(index: number) {
 }
 </script>
 <template>
-  <nav class="basis-1/6">
+  <nav class="basis-1/6 shrink-0">
     <div class="flex flex-col space-y-16 mx-5 my-5">
-      <div>Radiant Minds School</div>
+      <div class="text-lg font-bold text-center">Radiant Minds School</div>
       <ul class="flex flex-col space-y-4">
         <li
           v-for="navBarButton in navBarButtons"
