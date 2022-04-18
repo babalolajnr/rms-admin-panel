@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex justify-between border-b border-gray-700 pl-14 pr-7 py-5 items-center"
+    class="flex justify-between border-b border-slate-400 pl-14 pr-7 py-5 items-center"
   >
     <div class="flex space-x-5">
       <i class="bi bi-search font-bold"></i
@@ -15,7 +15,7 @@
         ><span class="text-gray-500">Super Admin</span>
       </div>
       <div
-        style="background-image: url('../../public/placeholder.jpg')"
+        style="background-image: url('/placeholder.jpg')"
         class="bg-cover h-12 w-12 rounded-lg shadow-md"
       ></div>
     </div>
