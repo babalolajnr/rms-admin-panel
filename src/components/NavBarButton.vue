@@ -15,8 +15,8 @@ const props = defineProps({
 </script>
 <template>
   <button
-    class="rounded-xl px-4 py-3 w-full text-left flex justify-between text-sm hover:bg-opacity-70 hover:translate-x-2 transition-all"
-    :class="{ 'bg-[#33b18a]': active }"
+    class="rounded-xl px-4 py-4 w-full text-left flex justify-between text-sm transition-all"
+    :class="{ 'bg-[#33b18a]': active, 'hover:bg-[#33b1895d]': !active }"
   >
     <div class="flex space-x-3">
       <slot />
@@ -25,7 +25,7 @@ const props = defineProps({
     <div v-if="tree">
       <i
         class="bi"
-        :class="{ 'bi-caret-left': active, 'bi-caret-down': !active }"
+        :class="{ 'bi-caret-left': !active, 'bi-caret-down': active }"
       ></i>
     </div>
   </button>
