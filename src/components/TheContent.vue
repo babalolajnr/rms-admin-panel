@@ -1,5 +1,5 @@
 <template>
-  <div class="grow border-x border-gray-700">
+  <div class="grow border-x border-slate-400">
     <TopBar />
     <router-view></router-view>
   </div>
