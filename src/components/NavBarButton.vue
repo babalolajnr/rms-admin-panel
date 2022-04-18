@@ -15,7 +15,7 @@ const props = defineProps({
 </script>
 <template>
   <button
-    class="rounded-xl px-4 py-4 w-full text-left flex justify-between text-sm transition-all"
+    class="rounded-xl px-4 py-4 w-full text-left flex justify-between font-bold transition-all"
     :class="{ 'bg-[#33b18a]': active, 'hover:bg-[#33b1895d]': !active }"
   >
     <div class="flex space-x-3">
