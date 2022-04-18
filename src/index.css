@@ -3,6 +3,21 @@
 @tailwind components;
 @tailwind utilities;
 
-.nunito{
+.nunito {
     font-family: 'Nunito', sans-serif;
+}
+
+.background {
+    background-color: #fde7f9;
+    background-image: linear-gradient(315deg, #fde7f9 0%, #aacaef 74%);
+}
+
+.fraudulent-election {
+    background-color: #7f5a83;
+    background-image: linear-gradient(315deg, #7f5a83 0%, #0d324d 74%);
+}
+
+.jay-z-hyphen:hover {
+    background-color: #e9bcb7;
+    background-image: linear-gradient(315deg, #e9bcb7 0%, #29524a 74%);
 }
