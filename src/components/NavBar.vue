@@ -19,9 +19,7 @@ const navBarButtons = ref([
     tree: true,
     icon: "bi bi-building",
     active: false,
-    toggleActive: function () {
-      this.active = !this.active;
-    },
+
     children: [
       {
         title: "Classes",
@@ -63,9 +61,6 @@ const navBarButtons = ref([
     icon: "bi bi-mortarboard",
     children: [],
     active: false,
-    toggleActive: function () {
-      console.log("clicked");
-    },
   },
   {
     title: "App",
@@ -73,11 +68,19 @@ const navBarButtons = ref([
     icon: "bi bi-nut",
     children: [],
     active: false,
-    toggleActive: function () {
-      return;
-    },
   },
 ]);
+
+let activeNavBarButton = ref();
+
+function toggleActive(index: number) {
+  // check if there is an active nav button
+  if (activeNavBarButton.value) {
+    activeNavBarButton.value.active = false;
+  }
+  navBarButtons.value[index].active = !navBarButtons.value[index].active;
+  activeNavBarButton = ref(navBarButtons.value[index]);
+}
 </script>
 <template>
   <nav class="basis-1/6">
@@ -87,7 +90,7 @@ const navBarButtons = ref([
         <li
           v-for="navBarButton in navBarButtons"
           :key="navBarButton.title"
-          v-on:click="navBarButton.toggleActive()"
+          v-on:click="toggleActive(navBarButtons.indexOf(navBarButton))"
         >
           <NavBarButton
             :title="navBarButton.title"
@@ -99,7 +102,7 @@ const navBarButtons = ref([
           <ul
             v-if="navBarButton.tree"
             class="flex flex-col space-y-1 ml-3"
-            :class="{ hidden: navBarButton.active }"
+            :class="{ hidden: !navBarButton.active }"
           >
             <li
               v-for="navBarButtonChild in navBarButton.children"
