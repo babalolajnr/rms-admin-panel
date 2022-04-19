@@ -9,16 +9,15 @@ const navBarButtons = ref([
     tree: false,
     icon: "bi bi-speedometer2",
     active: false,
-    toggleActive: () => {
-      return;
-    },
     children: null,
+    treeOpen: false,
   },
   {
     title: "School",
     tree: true,
     icon: "bi bi-building",
     active: false,
+    treeOpen: false,
 
     children: [
       {
@@ -61,6 +60,7 @@ const navBarButtons = ref([
     icon: "bi bi-mortarboard",
     children: [],
     active: false,
+    treeOpen: false,
   },
   {
     title: "App",
@@ -68,18 +68,14 @@ const navBarButtons = ref([
     icon: "bi bi-nut",
     children: [],
     active: false,
+    treeOpen: false,
   },
 ]);
 
-let activeNavBarButton = ref();
+// let activeNavBarButton = ref();
 
-function toggleActive(index: number) {
-  // check if there is an active nav button
-  if (activeNavBarButton.value) {
-    activeNavBarButton.value.active = false;
-  }
-  navBarButtons.value[index].active = !navBarButtons.value[index].active;
-  activeNavBarButton = ref(navBarButtons.value[index]);
+function toggleTreeOpen(index: number) {
+  navBarButtons.value[index].treeOpen = !navBarButtons.value[index].treeOpen;
 }
 </script>
 <template>
@@ -90,19 +86,19 @@ function toggleActive(index: number) {
         <li
           v-for="navBarButton in navBarButtons"
           :key="navBarButton.title"
-          v-on:click="toggleActive(navBarButtons.indexOf(navBarButton))"
+          v-on:click="toggleTreeOpen(navBarButtons.indexOf(navBarButton))"
         >
           <NavBarButton
             :title="navBarButton.title"
             :tree="navBarButton.tree"
-            :active="navBarButton.active"
+            :treeOpen="navBarButton.treeOpen"
           >
             <i :class="navBarButton.icon"></i>
           </NavBarButton>
           <ul
             v-if="navBarButton.tree"
             class="flex flex-col space-y-1 ml-3"
-            :class="{ hidden: !navBarButton.active }"
+            :class="{ hidden: !navBarButton.treeOpen }"
           >
             <li
               v-for="navBarButtonChild in navBarButton.children"
