@@ -6,7 +6,7 @@ const props = defineProps({
     default: false,
     required: false,
   },
-  active: {
+  treeOpen: {
     type: Boolean,
     default: false,
     required: false,
@@ -16,7 +16,7 @@ const props = defineProps({
 <template>
   <button
     class="rounded-xl px-4 py-4 w-full text-left flex justify-between font-bold transition-all"
-    :class="{ 'bg-[#33b18a]': active, 'hover:bg-[#33b1895d]': !active }"
+    :class="{ 'bg-[#33b18a]': treeOpen, 'hover:bg-[#33b1895d]': !treeOpen }"
   >
     <div class="flex space-x-3">
       <slot />
@@ -25,7 +25,7 @@ const props = defineProps({
     <div v-if="tree">
       <i
         class="bi"
-        :class="{ 'bi-caret-left': !active, 'bi-caret-down': active }"
+        :class="{ 'bi-caret-left': !treeOpen, 'bi-caret-down': treeOpen }"
       ></i>
     </div>
   </button>
